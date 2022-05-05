@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webhook-stdout
+  labels:
+    app: webhook-stdout
+spec:
+  containers:
+    - name: webhook-stdout
+      image: cjl7/webhook-stdout:v0.0.3
+      resources:
+        limits:
+          memory: '100Mi'
+          cpu: '100m'
+        requests:
+          memory: '50Mi'
+          cpu: '50m'

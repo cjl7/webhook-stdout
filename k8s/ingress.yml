@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webhook-stdout
+  annotations:
+    kubernetes.io/ingress.class: "nginx"    
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+spec:
+  rules:
+  - host: your-great-host-here
+    http:
+      paths:
+      - path: /webhook-stdout
+        pathType: Exact
+        backend:
+          service:
+            name: webhook-stdout
+            port:
+              number: 80
